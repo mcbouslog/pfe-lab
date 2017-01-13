@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './header';
+import Landing from './landing';
 import Footer from './footer';
 
 const Layout = ({ user, loginInitialized, children }) =>
-  <div>
+  <div className="layout">
     <Header />
 
     <main className="content-section">
-      {(user && loginInitialized ? children : <div>Loading...</div>)}
+      {(user && loginInitialized && children ?
+        children : <Landing userBool={user !== null} loginInitialized={loginInitialized} />)}
     </main>
 
     <Footer />
