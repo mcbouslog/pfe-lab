@@ -1,30 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
-import NavItems from './nav-items';
+import SiteNavItems from './site-nav-items';
 import HeaderAuth from '../containers/header-auth';
 
-class Header extends React.Component {
+class SiteNav extends React.Component {
   constructor() {
     super();
 
-    this.renderNav = this.renderNav.bind(this);
     this.renderNavItem = this.renderNavItem.bind(this);
-  }
-
-  renderNav() {
-    let nav = null;
-    if (this.props.navItems) {
-      nav = (
-        <nav className="site-nav">
-          <a href="https://www.zooniverse.org/" className="site-nav__link">ZOO-LOGO-PH</a>
-          <ul className="site-nav__main-links">
-            {this.props.navItems.map(this.renderNavItem)}
-          </ul>
-          <HeaderAuth />
-        </nav>
-      );
-    }
-    return nav;
   }
 
   renderNavItem(item) {
@@ -45,20 +28,28 @@ class Header extends React.Component {
   }
 
   render() {
-    return (
-      <header>
-        {this.renderNav()}
-      </header>
-    );
+    let nav = null;
+    if (this.props.navItems) {
+      nav = (
+        <nav className="site-nav">
+          <a href="https://www.zooniverse.org/" className="site-nav__link">ZOO-LOGO-PH</a>
+          <ul className="site-nav__main-links">
+            {this.props.navItems.map(this.renderNavItem)}
+          </ul>
+          <HeaderAuth />
+        </nav>
+      );
+    }
+    return nav;
   }
 }
 
-Header.propTypes = {
+SiteNav.propTypes = {
   navItems: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 
-Header.defaultProps = {
-  navItems: NavItems,
+SiteNav.defaultProps = {
+  navItems: SiteNavItems,
 };
 
-export default Header;
+export default SiteNav;

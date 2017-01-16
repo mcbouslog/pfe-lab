@@ -3,16 +3,16 @@ import { Link } from 'react-router';
 
 const SignedIn = () =>
   <div className="landing-buttons">
-    <a href="https://www.zooniverse.org/lab">Projects</a>
+    <a className="call-to-action standard-button landing-button" href="https://www.zooniverse.org/lab">Projects</a>
     <br />
-    <Link to="/organizations">Organizations</Link>
+    <Link className="call-to-action standard-button landing-button" to="/organizations">Organizations</Link>
   </div>;
 
 const SignedOut = () =>
   <div className="landing-buttons">
-    <a href="">Please Sign In!</a>
+    <a className="call-to-action standard-button landing-button" href="">Please Sign In!</a>
     <br />
-    <a href="">Back to Projects</a>
+    <a className="call-to-action standard-button landing-button" href="">Back to Projects</a>
   </div>;
 
 const Landing = ({ userBool, loginInitialized }) =>
