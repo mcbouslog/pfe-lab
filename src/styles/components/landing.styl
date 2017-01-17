@@ -1,21 +1,21 @@
-.landing-page
+.landing
   align-items: center
   background: url(../images/builder-landing.jpg) center center no-repeat
   background-size: cover
-  color: #f9f9f9
+  color: white
   display: flex
   flex-direction: column
   min-height: 100vh
   justify-content: center
   padding: 2.5em 3vw
 
-  .landing-title
+  &__title, h3
     color: inherit
     font-weight: 300
     line-height: 40px
     padding: 1.5em 0 0.5em
 
-  .landing-tagline
+  &__tagline
     p
       color: inherit
       font-size: 1.6em
@@ -24,30 +24,36 @@
       max-width: 600px
       padding: 1em 0 6.5em
 
-  .landing-buttons
+  &__buttons
     display: inline-block
 
-    .landing-button
-      display: block
-      box-sizing: border-box
-      color: #fbfbfb
+    // TODO clean-up the following, .on-landing-page overwrites __button
+    a
       font-size: 1.6em
       font-weight: 400
-      margin-bottom: 3vh
-      padding: 1em 0
-      width: 250px
 
-      &:hover
-        background: lighten(#00979D, 20%)
+  &__button
+    @extends .standard-button
+    font-size: 1.6em
+    font-weight: 400
+    margin-bottom: 3vh
+    padding: 1em 0
+    width: 250px
+    background: TEAL_MID
 
-  .landing-links
+    &:hover
+      background: lighten(TEAL_MID, 20%)
+
+    // TODO add color variation
+
+  &__links
     display: inline-block
     margin-left: 3em
     padding: 0 0 0 7.5px
-    border-left: 2px solid #FFFFFF
+    border-left: 2px solid white
 
-    .heading
-      color: #fbfbfb
+    &__heading, p
+      color: white
       margin: 0 0 5px 0
 
     a

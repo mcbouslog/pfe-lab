@@ -37,7 +37,9 @@ const SiteFooter = () =>
           </li>
           {process.env.NODE_ENV !== 'production' &&
             <li>
-              <a href="https://www.zooniverse.org/dev/classifier">Dev Classifier</a>
+              <a href="https://www.zooniverse.org/dev/classifier">
+                Dev Classifier
+              </a>
             </li>}
         </ul>
 

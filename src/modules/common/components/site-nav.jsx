@@ -6,7 +6,6 @@ import HeaderAuth from '../containers/header-auth';
 class SiteNav extends React.Component {
   constructor() {
     super();
-
     this.renderNavItem = this.renderNavItem.bind(this);
   }
 
@@ -29,12 +28,12 @@ class SiteNav extends React.Component {
 
   render() {
     let nav = null;
-    if (this.props.navItems) {
+    if (SiteNavItems) {
       nav = (
         <nav className="site-nav">
           <a href="https://www.zooniverse.org/" className="site-nav__link">ZOOLOGO PH</a>
           <ul className="site-nav__main-links">
-            {this.props.navItems.map(this.renderNavItem)}
+            {SiteNavItems.map(this.renderNavItem)}
           </ul>
           <HeaderAuth />
         </nav>
@@ -43,13 +42,5 @@ class SiteNav extends React.Component {
     return nav;
   }
 }
-
-SiteNav.propTypes = {
-  navItems: React.PropTypes.arrayOf(React.PropTypes.object),
-};
-
-SiteNav.defaultProps = {
-  navItems: SiteNavItems,
-};
 
 export default SiteNav;
