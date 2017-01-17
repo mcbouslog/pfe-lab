@@ -3,9 +3,9 @@ import React from 'react';
 const PropTypes = React.PropTypes;
 
 const LogoutButton = ({ logout, user }) =>
-  <div className="logout-button">
-    <span>{user.credited_name}</span>
-    <button type="submit" style={{ marginLeft: '1em' }} onClick={logout}>Log out</button>
+  <div>
+    <span>{user.display_name}</span>
+    <button type="submit" style={{ marginLeft: '1em' }} className="secret-button site-nav__link" onClick={logout}>Log out</button>
   </div>;
 
 LogoutButton.propTypes = {

@@ -32,7 +32,7 @@ class SiteNav extends React.Component {
     if (this.props.navItems) {
       nav = (
         <nav className="site-nav">
-          <a href="https://www.zooniverse.org/" className="site-nav__link">ZOO-LOGO-PH</a>
+          <a href="https://www.zooniverse.org/" className="site-nav__link">ZOOLOGO PH</a>
           <ul className="site-nav__main-links">
             {this.props.navItems.map(this.renderNavItem)}
           </ul>

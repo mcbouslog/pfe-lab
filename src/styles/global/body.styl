@@ -2,17 +2,26 @@ body
   margin: 0
 
 .layout
+  background-position: center top
+  background-size: cover
   display: flex
   flex: 1 0 auto
   flex-direction: column
   min-height: 100vh
-  background-position: center top
-  background-size: cover
   position: relative
 
   &__header
     background-color: TEAL_MID
     color: white
+
+    /.on-home-page,
+    /.on-secondary-page,
+    &--detached
+      background-color: transparent
+      position: absolute
+      width: 100%
+      z-index: 1
+      color: white
 
   &__not-header
     display: flex
