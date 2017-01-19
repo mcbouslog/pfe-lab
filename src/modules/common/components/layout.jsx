@@ -1,17 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Header from './header';
-import Footer from './footer';
+import SiteNav from './site-nav';
+import Landing from './landing';
+import SiteFooter from './site-footer';
 
 const Layout = ({ user, loginInitialized, children }) =>
-  <div>
-    <Header />
+  <div className="layout">
+    <header className="layout__header">
+      <SiteNav />
+    </header>
+    <div className="layout__not-header">
+      <main className="layout__main">
+        {(user && loginInitialized && children ?
+          children : <Landing userBool={user !== null} loginInitialized={loginInitialized} />)}
+      </main>
 
-    <main className="content-section">
-      {(user && loginInitialized ? children : <div>Loading...</div>)}
-    </main>
-
-    <Footer />
+      <footer className="layout__footer">
+        <SiteFooter />
+      </footer>
+    </div>
   </div>;
 
 Layout.propTypes = {

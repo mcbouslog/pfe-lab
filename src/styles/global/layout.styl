@@ -1,0 +1,54 @@
+body
+  margin: 0
+
+.layout
+  background-position: center top
+  background-size: cover
+  display: flex
+  flex: 1 0 auto
+  flex-direction: column
+  min-height: 100vh
+  position: relative
+
+  &__header
+    background-color: TEAL_MID
+    color: white
+
+    &--detached
+      background-color: transparent
+      position: absolute
+      width: 100%
+      z-index: 1
+      color: white
+
+  &__not-header
+    display: flex
+    flex-direction: column
+    flex-grow: 1
+
+  &__main
+    background: white
+    color: FOREGROUND
+    display: flex
+    flex-direction: column
+    flex-grow: 1
+    position: relative
+    transform-origin: center top
+    transition: opacity 250ms, transform 125ms
+
+    // TODO delete aside and section once landing and org list established
+    aside
+      width 25%
+      float left
+      padding-left 20px
+      padding-top 0
+      overflow hidden
+
+    section
+      padding 0
+      padding-top 1px
+      margin-left 25%
+
+  &__footer
+    background: #272727
+    color: rgba(white, 0.5)
