@@ -3,12 +3,8 @@ import { connect } from 'react-redux';
 import apiClient from 'panoptes-client/lib/api-client';
 
 import { setOrganizations } from '../action-creators';
-import { organizationShape, organizationsShape } from '../model';
-import OrganizationsLayout from '../components/organizations-layout';
-
-// Uncomment the following line if needed for your queries during dev.
-// TODO: Add toggle to the footer to set this.
-// apiClient.params.admin = true;
+import { organizationsShape } from '../model';
+import ListOrganizations from '../components/list-organizations';
 
 class OrganizationsContainer extends React.Component {
   constructor(props) {
@@ -28,23 +24,18 @@ class OrganizationsContainer extends React.Component {
 
   render() {
     return (
-      <OrganizationsLayout organizations={this.props.organizations} organization={this.props.organization}>
-        {this.props.children}
-      </OrganizationsLayout>
+      <ListOrganizations organizations={this.props.organizations} />
     );
   }
 }
 
 OrganizationsContainer.propTypes = {
-  children: React.PropTypes.node,
   dispatch: React.PropTypes.func,
-  organization: organizationShape,
   organizations: organizationsShape,
 };
 
 function mapStateToProps(state) {
   return {
-    organization: state.organization,
     organizations: state.organizations,
   };
 }
