@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import apiClient from 'panoptes-client/lib/api-client';
@@ -42,7 +43,21 @@ class OrganizationContainer extends React.Component {
       React.cloneElement(child, { organization, organizationId }),
     );
 
-    return (<div> {wrappedChildren} </div>);
+    return (
+      <div>
+        <aside>
+          <nav>
+            <ul>
+              <li><Link to={`/organizations/${organizationId}`}>Edit</Link></li>
+              <li><Link to={`/organizations/${organizationId}/about`}>About</Link></li>
+              <li><Link to={`/organizations/${organizationId}/collaborators`}>Collaborators</Link></li>
+              <li><Link to={`/organizations/${organizationId}/visibility`}>Visibility</Link></li>
+            </ul>
+          </nav>
+        </aside>
+        <section>{wrappedChildren}</section>
+      </div>
+    );
   }
 }
 
