@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import apiClient from 'panoptes-client/lib/api-client';
-import { organizationShape } from '../model';
+// import { organizationShape } from '../model';
 import { setCurrentOrganization } from '../action-creators';
+import OrganizationLayout from '../components/organization-layout';
 
 class OrganizationContainer extends React.Component {
   constructor(props) {
@@ -34,36 +34,18 @@ class OrganizationContainer extends React.Component {
   }
 
   render() {
-    const children = this.props.children; // eslint-disable-line react/prop-types
-    const organization = this.props.organization;
-    const organizationId = this.props.params.id;
-
-    // inject props into children
-    const wrappedChildren = React.Children.map(children, child =>
-      React.cloneElement(child, { organization, organizationId }),
-    );
-
     return (
-      <div>
-        <aside>
-          <nav>
-            <ul>
-              <li><Link to={`/organizations/${organizationId}`}>Edit</Link></li>
-              <li><Link to={`/organizations/${organizationId}/about`}>About</Link></li>
-              <li><Link to={`/organizations/${organizationId}/collaborators`}>Collaborators</Link></li>
-              <li><Link to={`/organizations/${organizationId}/visibility`}>Visibility</Link></li>
-            </ul>
-          </nav>
-        </aside>
-        <section>{wrappedChildren}</section>
-      </div>
+      <OrganizationLayout orgID={this.props.params.id}>
+        {this.props.children}
+      </OrganizationLayout>
     );
   }
 }
 
 OrganizationContainer.propTypes = {
+  children: React.PropTypes.node,
   dispatch: React.PropTypes.func,
-  organization: organizationShape,
+  // organization: organizationShape,
   params: React.PropTypes.shape({ id: React.PropTypes.string }),
 };
 

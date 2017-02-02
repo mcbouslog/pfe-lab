@@ -1,12 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { organizationShape } from '../model';
 
 const EditDetails = ({ organization }) => {
   if (!organization) {
-    return (
-      <div>Loading...</div>
-    );
+    return <div>Loading...</div>;
   }
 
   return (
@@ -20,4 +19,10 @@ const EditDetails = ({ organization }) => {
 
 EditDetails.propTypes = { organization: organizationShape };
 
-export default EditDetails;
+function mapStateToProps(state, ownProps) { // eslint-disable-line no-unused-vars
+  return {
+    organization: state.organization,
+  };
+}
+
+export default connect(mapStateToProps)(EditDetails);
