@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const OrganizationLayout = ({ children, navItems, orgID }) =>
+const OrganizationLayout = ({ children, navItems, organizationID }) =>
   <div>
     <aside>
       <nav>
@@ -9,7 +9,7 @@ const OrganizationLayout = ({ children, navItems, orgID }) =>
         <ul className="organizationsLinks">
           {navItems.map(item =>
             <li key={item.label}>
-              <Link to={`/organizations/${orgID}/${item.to}`}>
+              <Link to={`/organizations/${organizationID}/${item.to}`}>
                 {item.label}
               </Link>
             </li>,
@@ -24,7 +24,7 @@ const OrganizationLayout = ({ children, navItems, orgID }) =>
 OrganizationLayout.propTypes = {
   children: React.PropTypes.node,
   navItems: React.PropTypes.arrayOf(React.PropTypes.object),
-  orgID: React.PropTypes.string,
+  organizationID: React.PropTypes.string,
 };
 
 OrganizationLayout.defaultProps = {
