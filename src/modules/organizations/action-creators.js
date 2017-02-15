@@ -27,3 +27,10 @@ export function setOrganizationOwner(organizationOwner) {
     organizationOwner,
   };
 }
+
+export function setOrganizationRoles(organizationRoles) {
+  return {
+    type: types.SET_ORGANIZATION_ROLES,
+    organizationRoles,
+  };
+}

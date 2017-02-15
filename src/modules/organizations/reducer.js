@@ -11,6 +11,8 @@ export default function (state = initialState, action) { // eslint-disable-line 
       return { organizationCollaborators: action.organizationCollaborators };
     case types.SET_ORGANIZATION_OWNER:
       return { organizationOwner: action.organizationOwner };
+    case types.SET_ORGANIZATION_ROLES:
+      return { organizationRoles: action.organizationRoles };
     default:
       return state;
   }

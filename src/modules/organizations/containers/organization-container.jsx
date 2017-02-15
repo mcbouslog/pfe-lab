@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import apiClient from 'panoptes-client/lib/api-client';
 import { organizationShape } from '../model';
 import { setCurrentOrganization } from '../action-creators';
+import OrganizationLayout from '../components/organization-layout';
 
 class OrganizationContainer extends React.Component {
   constructor(props) {
@@ -51,7 +52,10 @@ class OrganizationContainer extends React.Component {
       React.cloneElement(child, { organization, organizationId, updateOrganization: this.updateOrganization }),
     );
 
-    return (<div> {wrappedChildren} </div>);
+    return (
+      <OrganizationLayout organizationId={organizationId}>
+        {wrappedChildren}
+      </OrganizationLayout>);
   }
 }
 

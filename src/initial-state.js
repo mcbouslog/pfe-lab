@@ -3,6 +3,7 @@ const initialState = {
   organization: null,
   organizationOwner: null,
   organizationCollaborators: null,
+  organizationRoles: null,
   organizations: [],
   user: null,
 };
